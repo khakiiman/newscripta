@@ -63,7 +63,6 @@ const FilterMenu = ({open=false, setOpen}) =>{
                       </Dialog.Title>
                     </div>
                     <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                      {/* Your content */}
                       <FilterForm />
                     </div>
                   </div>

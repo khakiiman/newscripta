@@ -7,14 +7,14 @@ import Auth from './components/pages/Auth';
 
 function App() {
   return (
-   <>
+   <main className='flex flex-col min-h-screen justify-between'>
     <Header />
     <Routes>
       <Route path="/"  element={<Home />}/>
       <Route path="/auth"  element={<Auth />}/> 
     </Routes>
     <Footer />
-   </>
+   </main>
   )
 }
 

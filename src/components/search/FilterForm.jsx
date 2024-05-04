@@ -3,9 +3,9 @@ import { useForm, Controller } from 'react-hook-form';
 import { myHistory } from '../../utils/router/history';
 import { useSearchParamValues } from '../../hooks/useParamValues';
 import { categories, countries, languages, sorts } from '../../constants/index'
-import Input from "../input/Input"
-import ComboBoxDefaultWrapper from '../input/ComboBox';
-import Button from '../input/Button';
+import Input from "../common/Input"
+import ComboBoxDefaultWrapper from '../common/ComboBox';
+import Button from '../common/Button';
 
 const FilterForm = () => {
   const params = useSearchParamValues()

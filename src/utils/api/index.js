@@ -12,7 +12,7 @@ const gnApiKey = import.meta.env.VITE_GNEWS_KEY;
 
 export async function getLatestNews() {
     let reqOptions = {
-        url: `${baseUrl}/top-headlines?country=us&apiKey=${apiKey}`,
+        url: `${baseUrl}/v2/top-headlines?country=us&apiKey=${apiKey}`,
         method: "GET",
     }
     try {

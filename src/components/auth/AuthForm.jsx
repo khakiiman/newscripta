@@ -7,8 +7,8 @@ import { continueWithGoogle, signUpWithCredentials, signInWithCredentials } from
 import { storeDataInSessionStorage, getDataFromSessionStorage } from '../../utils/helper';
 import { myHistory } from '../../utils/router/history';
 
-import Input from '../input/Input';
-import Button from '../input/Button';
+import Input from '../common/Input';
+import Button from '../common/Button';
 import AuthSocialButton from './AuthSocialButton';
 
 const AuthForm = () => {
@@ -91,7 +91,7 @@ const AuthForm = () => {
     }
 
     return (
-        <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
+        <main className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
             <div className=' bg-stone-50 px-4 py-8 shadow-lg sm:rounded-lg sm:px-10'>
                 <form className='space-y-6' onSubmit={handleSubmit(onSubmit)}>
                     {variant === 'REGISTER' && (
@@ -152,7 +152,7 @@ const AuthForm = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     )
 }
 

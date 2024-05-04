@@ -110,18 +110,18 @@ const Header = () => {
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <SearchBar />
-          <>{userData?.email ? ( 
+          <>{userData?.email ? (
             <>
-              <button 
-              onClick={handleLogOut}
-              className='flex gap-2 items-center  text-gray-900 ml-3'
+              <button
+                onClick={handleLogOut}
+                className='flex gap-2 items-center  text-gray-900 ml-3'
               >
                 <BiLogOut className='h-6 w-6 hover:scale-105 rotate-180' />
               </button>
             </>
           ) : (
             <Link to="/auth" className="text-sm font-semibold leading-6 text-gray-900 ml-3">
-              Log in <span aria-hidden="true">&rarr;</span>
+              Login
             </Link>
           )}</>
         </div>
@@ -130,11 +130,11 @@ const Header = () => {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-          <Link to="/" className="-m-1.5 py-1.5">
-            <span className="sr-only">News Aggregator</span>
-            <span className="font-logo text-2xl tracking-widest font-bold outlined-text">NEWS</span>
-            <span className="font-logo text-2xl tracking-widest font-bold">CRIPTA</span>
-          </Link>
+            <Link to="/" className="-m-1.5 py-1.5">
+              <span className="sr-only">News Aggregator</span>
+              <span className="font-logo text-2xl tracking-widest font-bold outlined-text">NEWS</span>
+              <span className="font-logo text-2xl tracking-widest font-bold">CRIPTA</span>
+            </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -153,15 +153,17 @@ const Header = () => {
                 <Link
                   to="/categories/general"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   General
-                </Link>  
+                </Link>
                 <Link
                   to="/categories/sports"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   Sports
-                </Link>  
+                </Link>
                 <Disclosure as="div" className="-mx-3">
                   {({ open }) => (
                     <>
@@ -177,10 +179,9 @@ const Header = () => {
                           <Disclosure.Button
                             key={item.name}
                             as="span"
-                            // href={item.href}
                             className="block rounded-lg p-0 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                           >
-                            <Link to={item.href} className='py-2 pl-6 pr-3'>
+                            <Link to={item.href} className='py-2 pl-6 pr-3' onClick={() => setMobileMenuOpen(false)}>
                               {item.name}
                             </Link>
                           </Disclosure.Button>
@@ -189,26 +190,27 @@ const Header = () => {
                     </>
                   )}
                 </Disclosure>
-                
+
               </div>
               <>
-              {userData?.email ? (
-                <div className='flex flex-col justify-start items-start space-y-4 p-6'>
-                  <button 
-                    onClick={handleLogOut}
-                    className='flex items-center gap-2 -mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
-                  >
-                    <BiLogOut />
-                    Logout
-                  </button>
-                </div>
+                {userData?.email ? (
+                  <div className='flex flex-col justify-start items-start space-y-4 p-6'>
+                    <button
+                      onClick={handleLogOut}
+                      className='flex items-center gap-2 -mx-3 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50'
+                    >
+                      <BiLogOut />
+                      Logout
+                    </button>
+                  </div>
                 ) : (
                   <div className="py-6">
                     <Link
                       to="/auth"
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
-                      Log in
+                      Login
                     </Link>
                   </div>
                 )}

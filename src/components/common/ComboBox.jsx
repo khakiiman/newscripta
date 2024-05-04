@@ -2,7 +2,6 @@ import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { HiOutlineSelector as ChevronUpDownIcon } from "react-icons/hi";
 import { HiCheck as CheckIcon } from "react-icons/hi";
-// import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 
 export default function ComboBoxDefaultWrapper({
