@@ -3,9 +3,9 @@ import { HiLink } from "react-icons/hi";
 export const NewsCard = ({ source, title, description, publishedAt, url, urlToImage }) => {
   return (
     <article className="break-inside mb-6">
-      <div className="flex flex-col rounded-xl border bg-white transition hover:bg-gray-200">
+      <div className="flex flex-col rounded-t-2xl border bg-white transition hover:bg-gray-200">
         <div className="">
-          <img src={urlToImage || '/images/news_fallback.jpg'} className="w-full object-cover rounded-xl" />
+          <img src={urlToImage || '/images/news_fallback.jpg'} className="w-full object-cover rounded-t-2xl" />
         </div>
         <div className="flex-1 p-4">
           <div className="flex justify-between">
@@ -13,7 +13,7 @@ export const NewsCard = ({ source, title, description, publishedAt, url, urlToIm
             <span className="text-xs ml-8">{publishedAt}</span>
           </div>
 
-          <h6 className="mb-4 text-xl font-light">{title}</h6>
+          <h6 className="mb-4 font-bold text-xl">{title}</h6>
           <p className="mb-4 text-xs">{description}</p>
         </div>
         <div className="p-4">
