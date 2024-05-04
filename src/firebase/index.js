@@ -59,7 +59,6 @@ export const signInWithCredentials = async (email, password) => {
 export const continueWithGoogle = async () => {
     try {
         const result = await signInWithPopup(auth, provider);
-        // The signed-in user info.
         const user = result.user;
         const docResponse = await setUserInfo(user.email, {name: user.displayName});
         return { success: true , ...docResponse};

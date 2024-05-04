@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
 
-import IconButton from '../input/IconButtons'
+import IconButton from '../common/IconButtons'
 import { FaFacebook, FaGithub, FaInstagram, FaYoutube } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className="h-28">
-      <div className="py-6 px-6 max-w-7xl mx-auto sm:flex justify-between items-center">
+    <footer className="">
+      <div className="py-5 px-6 max-w-7xl mx-auto sm:flex justify-between items-center">
         <div className="flex lg:flex-1 justify-center sm:justify-start pb-4 sm:pb-0">
           <Link to="/" className="-m-1.5 py-1.5">
             <span className="sr-only">News Aggregator</span>

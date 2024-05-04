@@ -30,7 +30,7 @@ const SearchBar = () => {
     <div className="p-0 m-0">
         <div className="relative max-w-xs">
             <input
-                className="w-full  px-4 border border-gray-300 rounded-3xl shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-600 "
+                className="w-full px-4 border border-gray-300 rounded-3xl shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-600 "
                 type="search"
                 placeholder="Search"
                 value={searchTerm}
