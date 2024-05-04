@@ -52,7 +52,7 @@ const Header = () => {
   }
 
   return (
-    <header className="h-20">
+    <header className="">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 py-1.5">
@@ -219,6 +219,7 @@ const Header = () => {
           </div>
         </Dialog.Panel>
       </Dialog>
+      <hr className='sm:flex sm:px-20' />
     </header>
   )
 }
