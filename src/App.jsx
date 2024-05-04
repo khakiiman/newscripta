@@ -5,6 +5,7 @@ import Footer from './components/layouts/Footer';
 import Home from './components/pages/Home';
 import Auth from './components/pages/Auth';
 import Category from './components/pages/Category';
+import SearchResults from './components/pages/SearchResults';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/"  element={<Home />}/>
       <Route path="/auth"  element={<Auth />}/>
       <Route path="/categories/:id" element={<Category />} />
+      <Route path="/search-results"  element={<SearchResults />}/>
     </Routes>
     <Footer />
    </main>

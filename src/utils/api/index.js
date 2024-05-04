@@ -38,7 +38,7 @@ export async function getNewsByCategory(category) {
 
 export async function getSearchResults(searchParams) {
     let params = formatParamsForApi(searchParams);
-    params.newsApiKey = newsApiKey
+    params.apiKey = newsApiKey
 
     let reqOptions = {
         url: `${newsBaseUrl}/v2/everything`,
