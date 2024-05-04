@@ -1,6 +1,14 @@
 import { countries, languages, categories, sorts } from "../../constants/index"
 
-export const getParams = (searchParams) => {
+const storeDataInSessionStorage = (key, value) => {
+    sessionStorage.setItem(key, JSON.stringify(value));
+}
+
+const getDataFromSessionStorage = (key) => {
+    return JSON.parse(sessionStorage.getItem(key));
+}
+
+const getParams = (searchParams) => {
     let category = searchParams.get("category")
     let country = searchParams.get("country")
     let q = searchParams.get("q")
@@ -18,7 +26,7 @@ export const getParams = (searchParams) => {
         params.country = countries.find(c => c.id == country)
     if (!!dateFrom && !!dateTo)
         params.dateFrom = dateFrom
-        params.dateTo = dateTo
+    params.dateTo = dateTo
     if (category)
         params.sortBy = categories.find(s => s.id == category)
     if (sortBy)
@@ -33,12 +41,39 @@ export const getParams = (searchParams) => {
     return params
 }
 
-const storeDataInSessionStorage = (key, value) => {
-    sessionStorage.setItem(key, JSON.stringify(value));
+const formatParamsForApi = (params) => {
+    const {
+        category,
+        country,
+        dateFrom,
+        dateTo,
+        q,
+        language,
+        pageSize,
+        page,
+        sortBy
+    } = params;
+    let formattedParams = {};
+    if (q)
+        formattedParams.q = q;
+    if (dateTo)
+        formattedParams.to = dateTo;
+    if (dateFrom)
+        formattedParams.from = dateFrom;
+    if (country)
+        formattedParams.source = country.id;
+    if (sortBy)
+        formattedParams.sortBy = sortBy.id;
+    if (language)
+        formattedParams.language = language.id;
+    if (category)
+        formattedParams.category = category.id;
+    if (pageSize)
+        formattedParams.pageSize = pageSize;
+    if (page)
+        formattedParams.page = page;
+
+    return formattedParams;
 }
 
-const getDataFromSessionStorage = (key) => {
-    return JSON.parse(sessionStorage.getItem(key));
-}
-
-export { storeDataInSessionStorage, getDataFromSessionStorage }
+export { storeDataInSessionStorage, getDataFromSessionStorage, getParams, formatParamsForApi }
