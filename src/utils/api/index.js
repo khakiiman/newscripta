@@ -1,8 +1,8 @@
 import axios from "axios";
 import { formatParamsForApi } from "../helper/index";
 
-const baseUrl = import.meta.env.VITE_NEWSAPI_URL;
-const apiKey = import.meta.env.VITE_NEWSAPI_KEY;
+const newsBaseUrl = import.meta.env.VITE_NEWSAPI_URL;
+const newsApiKey = import.meta.env.VITE_NEWSAPI_KEY;
 
 const nytBaseUrl = import.meta.env.VITE_NYTIMES_URL;
 const nytApiKey = import.meta.env.VITE_NYTIMES_KEY;
@@ -12,7 +12,7 @@ const gnApiKey = import.meta.env.VITE_GNEWS_KEY;
 
 export async function getLatestNews() {
     let reqOptions = {
-        url: `${baseUrl}/v2/top-headlines?country=us&apiKey=${apiKey}`,
+        url: `${newsBaseUrl}/v2/top-headlines?country=us&apiKey=${newsApiKey}`,
         method: "GET",
     }
     try {
@@ -25,7 +25,7 @@ export async function getLatestNews() {
 
 export async function getNewsByCategory(category) {
     let reqOptions = {
-        url: `${baseUrl}/top-headlines?country=us&category=${category}&apiKey=${apiKey}`,
+        url: `${newsBaseUrl}/v2/top-headlines?country=us&category=${category}&apiKey=${newsApiKey}`,
         method: "GET",
     }
     try {
@@ -38,10 +38,10 @@ export async function getNewsByCategory(category) {
 
 export async function getSearchResults(searchParams) {
     let params = formatParamsForApi(searchParams);
-    params.apiKey = apiKey
+    params.newsApiKey = newsApiKey
 
     let reqOptions = {
-        url: `${baseUrl}/everything`,
+        url: `${newsBaseUrl}/v2/everything`,
         method: "GET",
         params,
     }
