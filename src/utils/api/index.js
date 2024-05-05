@@ -1,5 +1,14 @@
 import axios from "axios";
 import { formatParamsForApi } from "../helper/index";
+import {
+    transformNYTimesToModel,
+    transformNewsAPIToModel,
+    transformGuardianToModel,
+    transformOpenNewsToModel,
+    transformNewsCredToModel,
+    transformBBCNewsToModel
+} from '../api/newsItemTransformer';
+
 
 const newsBaseUrl = import.meta.env.VITE_NEWSAPI_URL;
 const newsApiKey = import.meta.env.VITE_NEWSAPI_KEY;
